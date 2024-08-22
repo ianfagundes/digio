@@ -13,4 +13,5 @@ enum NetworkError: Error {
     case decodingError
     case httpError(Int)
     case unknown
+    case invalidResponse
 }
