@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct CashInfo: Codable {
+    let title: String
+    let bannerURL: String
+    let description: String
+}

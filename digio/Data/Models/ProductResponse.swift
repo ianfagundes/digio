@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct ProductResponse: Codable {
+    let spotlight: [SpotlightItem]
+    let products: [Product]
+    let cash: CashInfo
+}
