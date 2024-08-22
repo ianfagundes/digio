@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14533D312C77E6590095F4E5 /* HttpGetClientIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14533D302C77E6590095F4E5 /* HttpGetClientIProtocol.swift */; };
+		14533D332C77E6870095F4E5 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14533D322C77E6870095F4E5 /* NetworkError.swift */; };
+		14533D352C77EB740095F4E5 /* URLSessionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14533D342C77EB740095F4E5 /* URLSessionAdapter.swift */; };
 		1472E1462C77D3D8009CA7C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1472E1452C77D3D8009CA7C3 /* AppDelegate.swift */; };
 		1472E1482C77D3D8009CA7C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1472E1472C77D3D8009CA7C3 /* SceneDelegate.swift */; };
 		1472E14A2C77D3D8009CA7C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1472E1492C77D3D8009CA7C3 /* ViewController.swift */; };
@@ -40,6 +43,9 @@
 
 /* Begin PBXFileReference section */
 		02E988250E72FE6F6D8FDB94 /* Pods_digio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_digio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		14533D302C77E6590095F4E5 /* HttpGetClientIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpGetClientIProtocol.swift; sourceTree = "<group>"; };
+		14533D322C77E6870095F4E5 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		14533D342C77EB740095F4E5 /* URLSessionAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionAdapter.swift; sourceTree = "<group>"; };
 		1472E1422C77D3D8009CA7C3 /* digio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = digio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1472E1452C77D3D8009CA7C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1472E1472C77D3D8009CA7C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +97,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		14533D2F2C77E63C0095F4E5 /* Infra */ = {
+			isa = PBXGroup;
+			children = (
+				14533D302C77E6590095F4E5 /* HttpGetClientIProtocol.swift */,
+				14533D322C77E6870095F4E5 /* NetworkError.swift */,
+				14533D342C77EB740095F4E5 /* URLSessionAdapter.swift */,
+			);
+			path = Infra;
+			sourceTree = "<group>";
+		};
 		1472E1392C77D3D8009CA7C3 = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +132,7 @@
 		1472E1442C77D3D8009CA7C3 /* digio */ = {
 			isa = PBXGroup;
 			children = (
+				14533D2F2C77E63C0095F4E5 /* Infra */,
 				1472E1452C77D3D8009CA7C3 /* AppDelegate.swift */,
 				1472E1472C77D3D8009CA7C3 /* SceneDelegate.swift */,
 				1472E1492C77D3D8009CA7C3 /* ViewController.swift */,
@@ -164,7 +181,6 @@
 				AE62CE828DD361F4C2C27E58 /* Pods-digioTests.debug.xcconfig */,
 				B09BF6EE496F66340EE673D2 /* Pods-digioTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -390,9 +406,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14533D352C77EB740095F4E5 /* URLSessionAdapter.swift in Sources */,
 				1472E14A2C77D3D8009CA7C3 /* ViewController.swift in Sources */,
+				14533D312C77E6590095F4E5 /* HttpGetClientIProtocol.swift in Sources */,
 				1472E1462C77D3D8009CA7C3 /* AppDelegate.swift in Sources */,
 				1472E1482C77D3D8009CA7C3 /* SceneDelegate.swift in Sources */,
+				14533D332C77E6870095F4E5 /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
