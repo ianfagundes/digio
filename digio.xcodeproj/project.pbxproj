@@ -16,6 +16,8 @@
 		14533D412C78029F0095F4E5 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14533D402C78029F0095F4E5 /* Product.swift */; };
 		14533D432C7802A90095F4E5 /* CashInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14533D422C7802A90095F4E5 /* CashInfo.swift */; };
 		14533D452C7802AF0095F4E5 /* ProductResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14533D442C7802AF0095F4E5 /* ProductResponse.swift */; };
+		14533D482C7804B90095F4E5 /* FileFetchProductsUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14533D472C7804B90095F4E5 /* FileFetchProductsUseCaseProtocol.swift */; };
+		14533D4A2C7804CF0095F4E5 /* FetchProductsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14533D492C7804CF0095F4E5 /* FetchProductsUseCase.swift */; };
 		1472E1462C77D3D8009CA7C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1472E1452C77D3D8009CA7C3 /* AppDelegate.swift */; };
 		1472E1482C77D3D8009CA7C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1472E1472C77D3D8009CA7C3 /* SceneDelegate.swift */; };
 		1472E14A2C77D3D8009CA7C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1472E1492C77D3D8009CA7C3 /* ViewController.swift */; };
@@ -58,6 +60,8 @@
 		14533D402C78029F0095F4E5 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		14533D422C7802A90095F4E5 /* CashInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashInfo.swift; sourceTree = "<group>"; };
 		14533D442C7802AF0095F4E5 /* ProductResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductResponse.swift; sourceTree = "<group>"; };
+		14533D472C7804B90095F4E5 /* FileFetchProductsUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileFetchProductsUseCaseProtocol.swift; sourceTree = "<group>"; };
+		14533D492C7804CF0095F4E5 /* FetchProductsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchProductsUseCase.swift; sourceTree = "<group>"; };
 		1472E1422C77D3D8009CA7C3 /* digio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = digio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1472E1452C77D3D8009CA7C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1472E1472C77D3D8009CA7C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -148,6 +152,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		14533D462C7804A40095F4E5 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				14533D472C7804B90095F4E5 /* FileFetchProductsUseCaseProtocol.swift */,
+				14533D492C7804CF0095F4E5 /* FetchProductsUseCase.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
 		1472E1392C77D3D8009CA7C3 = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +188,8 @@
 			children = (
 				14533D372C7800250095F4E5 /* Data */,
 				14533D2F2C77E63C0095F4E5 /* Infra */,
+				14533D372C7800250095F4E5 /* Data */,
+				14533D462C7804A40095F4E5 /* Domain */,
 				1472E1452C77D3D8009CA7C3 /* AppDelegate.swift */,
 				1472E1472C77D3D8009CA7C3 /* SceneDelegate.swift */,
 				1472E1492C77D3D8009CA7C3 /* ViewController.swift */,
@@ -448,6 +463,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14533D4A2C7804CF0095F4E5 /* FetchProductsUseCase.swift in Sources */,
 				14533D452C7802AF0095F4E5 /* ProductResponse.swift in Sources */,
 				14533D352C77EB740095F4E5 /* URLSessionAdapter.swift in Sources */,
 				1472E14A2C77D3D8009CA7C3 /* ViewController.swift in Sources */,
@@ -456,6 +472,7 @@
 				1472E1462C77D3D8009CA7C3 /* AppDelegate.swift in Sources */,
 				1472E1482C77D3D8009CA7C3 /* SceneDelegate.swift in Sources */,
 				14533D432C7802A90095F4E5 /* CashInfo.swift in Sources */,
+				14533D482C7804B90095F4E5 /* FileFetchProductsUseCaseProtocol.swift in Sources */,
 				14533D3B2C7800650095F4E5 /* RemoteProductRepository.swift in Sources */,
 				14533D412C78029F0095F4E5 /* Product.swift in Sources */,
 				14533D392C7800310095F4E5 /* ProductRepositoryProtocol.swift in Sources */,
