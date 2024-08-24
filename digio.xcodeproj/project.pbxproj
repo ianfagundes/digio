@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		143A98242C78D5950070EE52 /* ProductListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143A98232C78D5950070EE52 /* ProductListViewModelProtocol.swift */; };
 		143A98272C78D7040070EE52 /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143A98262C78D7040070EE52 /* ProductListViewModel.swift */; };
+		143A982C2C7910C60070EE52 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143A982B2C7910C60070EE52 /* ProductListViewController.swift */; };
+		143A982E2C79166C0070EE52 /* ProductListCellTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143A982D2C79166C0070EE52 /* ProductListCellTypeEnum.swift */; };
+		143A98302C79174F0070EE52 /* ProductListTableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143A982F2C79174F0070EE52 /* ProductListTableViewProtocol.swift */; };
+		143A98332C7917F10070EE52 /* SpotlightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143A98322C7917F10070EE52 /* SpotlightTableViewCell.swift */; };
+		143A98352C7917F90070EE52 /* CashTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143A98342C7917F90070EE52 /* CashTableViewCell.swift */; };
+		143A98372C7918030070EE52 /* CarouselTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143A98362C7918030070EE52 /* CarouselTableViewCell.swift */; };
+		144A7DE52C7958EF005442AE /* TinyConstraints in Frameworks */ = {isa = PBXBuildFile; productRef = 144A7DE42C7958EF005442AE /* TinyConstraints */; };
+		144A7DE92C7972BE005442AE /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144A7DE82C7972BE005442AE /* CoordinatorProtocol.swift */; };
+		144A7DEB2C7972ED005442AE /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144A7DEA2C7972ED005442AE /* AppCoordinator.swift */; };
 		14533D312C77E6590095F4E5 /* HttpGetClientIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14533D302C77E6590095F4E5 /* HttpGetClientIProtocol.swift */; };
 		14533D332C77E6870095F4E5 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14533D322C77E6870095F4E5 /* NetworkError.swift */; };
 		14533D352C77EB740095F4E5 /* URLSessionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14533D342C77EB740095F4E5 /* URLSessionAdapter.swift */; };
@@ -22,7 +31,6 @@
 		14533D4A2C7804CF0095F4E5 /* FetchProductsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14533D492C7804CF0095F4E5 /* FetchProductsUseCase.swift */; };
 		1472E1462C77D3D8009CA7C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1472E1452C77D3D8009CA7C3 /* AppDelegate.swift */; };
 		1472E1482C77D3D8009CA7C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1472E1472C77D3D8009CA7C3 /* SceneDelegate.swift */; };
-		1472E14A2C77D3D8009CA7C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1472E1492C77D3D8009CA7C3 /* ViewController.swift */; };
 		1472E14D2C77D3D8009CA7C3 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 1472E14C2C77D3D8009CA7C3 /* Base */; };
 		1472E14F2C77D3D9009CA7C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1472E14E2C77D3D9009CA7C3 /* Assets.xcassets */; };
 		1472E1522C77D3D9009CA7C3 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 1472E1512C77D3D9009CA7C3 /* Base */; };
@@ -55,6 +63,14 @@
 		02E988250E72FE6F6D8FDB94 /* Pods_digio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_digio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		143A98232C78D5950070EE52 /* ProductListViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModelProtocol.swift; sourceTree = "<group>"; };
 		143A98262C78D7040070EE52 /* ProductListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModel.swift; sourceTree = "<group>"; };
+		143A982B2C7910C60070EE52 /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
+		143A982D2C79166C0070EE52 /* ProductListCellTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListCellTypeEnum.swift; sourceTree = "<group>"; };
+		143A982F2C79174F0070EE52 /* ProductListTableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListTableViewProtocol.swift; sourceTree = "<group>"; };
+		143A98322C7917F10070EE52 /* SpotlightTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightTableViewCell.swift; sourceTree = "<group>"; };
+		143A98342C7917F90070EE52 /* CashTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashTableViewCell.swift; sourceTree = "<group>"; };
+		143A98362C7918030070EE52 /* CarouselTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselTableViewCell.swift; sourceTree = "<group>"; };
+		144A7DE82C7972BE005442AE /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
+		144A7DEA2C7972ED005442AE /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		14533D302C77E6590095F4E5 /* HttpGetClientIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpGetClientIProtocol.swift; sourceTree = "<group>"; };
 		14533D322C77E6870095F4E5 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		14533D342C77EB740095F4E5 /* URLSessionAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionAdapter.swift; sourceTree = "<group>"; };
@@ -69,7 +85,6 @@
 		1472E1422C77D3D8009CA7C3 /* digio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = digio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1472E1452C77D3D8009CA7C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1472E1472C77D3D8009CA7C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1472E1492C77D3D8009CA7C3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1472E14C2C77D3D8009CA7C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1472E14E2C77D3D9009CA7C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1472E1512C77D3D9009CA7C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -95,6 +110,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84F38F23B4FF8EBE8726B682 /* Pods_digio.framework in Frameworks */,
+				144A7DE52C7958EF005442AE /* TinyConstraints in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,7 +136,8 @@
 		143A98222C78D5650070EE52 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				143A98262C78D7040070EE52 /* ProductListViewModel.swift */,
+				143A982A2C7910BB0070EE52 /* UI */,
+				143A98292C7910B40070EE52 /* ViewModels */,
 				143A98252C78D59A0070EE52 /* Protocols */,
 			);
 			path = Presentation;
@@ -132,6 +149,52 @@
 				143A98232C78D5950070EE52 /* ProductListViewModelProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		143A98292C7910B40070EE52 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				143A98262C78D7040070EE52 /* ProductListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		143A982A2C7910BB0070EE52 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				143A98312C7917E30070EE52 /* Cells */,
+				143A982B2C7910C60070EE52 /* ProductListViewController.swift */,
+				143A982D2C79166C0070EE52 /* ProductListCellTypeEnum.swift */,
+				143A982F2C79174F0070EE52 /* ProductListTableViewProtocol.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		143A98312C7917E30070EE52 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				143A98322C7917F10070EE52 /* SpotlightTableViewCell.swift */,
+				143A98342C7917F90070EE52 /* CashTableViewCell.swift */,
+				143A98362C7918030070EE52 /* CarouselTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		144A7DE62C797289005442AE /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				144A7DE72C797299005442AE /* Coordinator */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		144A7DE72C797299005442AE /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				144A7DE82C7972BE005442AE /* CoordinatorProtocol.swift */,
+				144A7DEA2C7972ED005442AE /* AppCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		14533D2F2C77E63C0095F4E5 /* Infra */ = {
@@ -207,13 +270,13 @@
 		1472E1442C77D3D8009CA7C3 /* digio */ = {
 			isa = PBXGroup;
 			children = (
+				144A7DE62C797289005442AE /* Application */,
 				14533D2F2C77E63C0095F4E5 /* Infra */,
 				14533D372C7800250095F4E5 /* Data */,
 				14533D462C7804A40095F4E5 /* Domain */,
 				143A98222C78D5650070EE52 /* Presentation */,
 				1472E1452C77D3D8009CA7C3 /* AppDelegate.swift */,
 				1472E1472C77D3D8009CA7C3 /* SceneDelegate.swift */,
-				1472E1492C77D3D8009CA7C3 /* ViewController.swift */,
 				1472E14B2C77D3D8009CA7C3 /* Main.storyboard */,
 				1472E14E2C77D3D9009CA7C3 /* Assets.xcassets */,
 				1472E1502C77D3D9009CA7C3 /* LaunchScreen.storyboard */,
@@ -280,6 +343,9 @@
 			dependencies = (
 			);
 			name = digio;
+			packageProductDependencies = (
+				144A7DE42C7958EF005442AE /* TinyConstraints */,
+			);
 			productName = digio;
 			productReference = 1472E1422C77D3D8009CA7C3 /* digio.app */;
 			productType = "com.apple.product-type.application";
@@ -354,6 +420,9 @@
 				Base,
 			);
 			mainGroup = 1472E1392C77D3D8009CA7C3;
+			packageReferences = (
+				144A7DE32C7958EF005442AE /* XCRemoteSwiftPackageReference "TinyConstraints" */,
+			);
 			productRefGroup = 1472E1432C77D3D8009CA7C3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -485,20 +554,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				14533D4A2C7804CF0095F4E5 /* FetchProductsUseCase.swift in Sources */,
+				143A982C2C7910C60070EE52 /* ProductListViewController.swift in Sources */,
 				14533D452C7802AF0095F4E5 /* ProductResponse.swift in Sources */,
+				143A98302C79174F0070EE52 /* ProductListTableViewProtocol.swift in Sources */,
 				14533D352C77EB740095F4E5 /* URLSessionAdapter.swift in Sources */,
-				1472E14A2C77D3D8009CA7C3 /* ViewController.swift in Sources */,
+				144A7DE92C7972BE005442AE /* CoordinatorProtocol.swift in Sources */,
+				143A98372C7918030070EE52 /* CarouselTableViewCell.swift in Sources */,
 				14533D3F2C78026F0095F4E5 /* SpotlightItem.swift in Sources */,
 				14533D312C77E6590095F4E5 /* HttpGetClientIProtocol.swift in Sources */,
 				1472E1462C77D3D8009CA7C3 /* AppDelegate.swift in Sources */,
 				1472E1482C77D3D8009CA7C3 /* SceneDelegate.swift in Sources */,
+				144A7DEB2C7972ED005442AE /* AppCoordinator.swift in Sources */,
 				14533D432C7802A90095F4E5 /* CashInfo.swift in Sources */,
 				14533D482C7804B90095F4E5 /* FileFetchProductsUseCaseProtocol.swift in Sources */,
 				14533D3B2C7800650095F4E5 /* RemoteProductRepository.swift in Sources */,
 				14533D412C78029F0095F4E5 /* Product.swift in Sources */,
 				14533D392C7800310095F4E5 /* ProductRepositoryProtocol.swift in Sources */,
 				14533D332C77E6870095F4E5 /* NetworkError.swift in Sources */,
+				143A98332C7917F10070EE52 /* SpotlightTableViewCell.swift in Sources */,
+				143A98352C7917F90070EE52 /* CashTableViewCell.swift in Sources */,
 				143A98272C78D7040070EE52 /* ProductListViewModel.swift in Sources */,
+				143A982E2C79166C0070EE52 /* ProductListCellTypeEnum.swift in Sources */,
 				143A98242C78D5950070EE52 /* ProductListViewModelProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -757,7 +833,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.ianfagundes.digioTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/digio.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/digio";
 			};
@@ -778,7 +854,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.ianfagundes.digioTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/digio.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/digio";
 			};
@@ -797,7 +873,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.ianfagundes.digioUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = digio;
 			};
@@ -816,7 +892,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.ianfagundes.digioUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = digio;
 			};
@@ -862,6 +938,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		144A7DE32C7958EF005442AE /* XCRemoteSwiftPackageReference "TinyConstraints" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/roberthein/TinyConstraints.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		144A7DE42C7958EF005442AE /* TinyConstraints */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 144A7DE32C7958EF005442AE /* XCRemoteSwiftPackageReference "TinyConstraints" */;
+			productName = TinyConstraints;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1472E13A2C77D3D8009CA7C3 /* Project object */;
 }
