@@ -9,8 +9,13 @@ import Foundation
 import TinyConstraints
 import UIKit
 
+protocol ProductListViewControllerDelegate: AnyObject {
+    func didSelectItem(_ item: DetailItemType)
+}
+
 class ProductListViewController: UIViewController, ProductListViewModelDelegate {
     var viewModel: ProductListViewModelProtocol
+    weak var delegate: ProductListViewControllerDelegate?
 
     private let productsTableView: UITableView = {
         let tv = UITableView()
@@ -35,7 +40,7 @@ class ProductListViewController: UIViewController, ProductListViewModelDelegate 
         lb.textAlignment = .left
         return lb
     }()
-    
+
     init(viewModel: ProductListViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -67,7 +72,6 @@ class ProductListViewController: UIViewController, ProductListViewModelDelegate 
         productsTableView.bottomToSuperview()
         productsTableView.leadingToSuperview(offset: 16)
         productsTableView.trailingToSuperview(offset: 16)
-        
     }
 
     internal func getCellType(for indexPath: IndexPath) -> ProductListCellType? {
@@ -94,6 +98,7 @@ class ProductListViewController: UIViewController, ProductListViewModelDelegate 
 }
 
 // MARK: - Extensions
+
 // implementando o protocolo CashTableViewCellDelegate para fazer o reload dos dados da tableView.
 
 extension ProductListViewController: CashTableViewCellDelegate {
@@ -101,5 +106,12 @@ extension ProductListViewController: CashTableViewCellDelegate {
         DispatchQueue.main.async {
             self.productsTableView.reloadData()
         }
+    }
+}
+
+extension ProductListViewController: ProductsCarouselTableViewCellDelegate {
+    func productsCarouselTableViewCell(_ cell: ProductsCarouselTableViewCell, didSelectItem item: ProductItem) {
+        let selectedItem = DetailItemType.product(item)
+        delegate?.didSelectItem(selectedItem)
     }
 }

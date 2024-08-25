@@ -10,7 +10,7 @@ import Foundation
 protocol ProductListViewModelProtocol {
     var products: [ProductItem] { get }
     var spotlightItems: [SpotlightItem] { get }
-    var cashInfo: CashInfo? { get }
+    var cashInfo: CashInfoItem? { get }
     var cashTitle: String? { get }
     
     var delegate: ProductListViewModelDelegate? { get set }

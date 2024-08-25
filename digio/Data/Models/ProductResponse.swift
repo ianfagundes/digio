@@ -10,5 +10,5 @@ import Foundation
 struct ProductResponse: Codable {
     let spotlight: [SpotlightItem]
     let products: [ProductItem]
-    let cash: CashInfo
+    let cash: CashInfoItem
 }

@@ -14,7 +14,7 @@ protocol CashTableViewCellDelegate: AnyObject {
 }
 
 class CashTableViewCell: UITableViewCell {
-    private var cashInfo: CashInfo?
+    private var cashInfo: CashInfoItem?
 
     weak var delegate: CashTableViewCellDelegate?
 
@@ -37,6 +37,7 @@ class CashTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        selectionStyle = .none 
         setupImageView()
     }
 
@@ -44,7 +45,7 @@ class CashTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func configure(with cashInfo: CashInfo?) {
+    func configure(with cashInfo: CashInfoItem?) {
         self.cashInfo = cashInfo
         setImageView()
     }

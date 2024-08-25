@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+enum DetailItemType {
+    case product(ProductItem)
+    case banner(SpotlightItem)
+    case service(CashInfoItem)
+}

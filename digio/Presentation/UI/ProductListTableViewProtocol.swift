@@ -25,6 +25,7 @@ extension ProductListViewController: UITableViewDataSource, UITableViewDelegate 
         switch cellType {
         case .spotlight:
             if let cell = tableView.dequeueReusableCell(withIdentifier: ProductListCellType.spotlight.identifier, for: indexPath) as? SpotlightCarouselTableViewCell {
+                cell.delegate = self
                 cell.configure(with: viewModel.spotlightItems)
                 return cell
             }
@@ -51,6 +52,7 @@ extension ProductListViewController: UITableViewDataSource, UITableViewDelegate 
 
         case .productsCarousel:
             if let cell = tableView.dequeueReusableCell(withIdentifier: ProductListCellType.productsCarousel.identifier, for: indexPath) as? ProductsCarouselTableViewCell {
+                cell.delegate = self
                 cell.configure(with: viewModel.products)
                 return cell
             }
@@ -59,7 +61,30 @@ extension ProductListViewController: UITableViewDataSource, UITableViewDelegate 
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        guard let cellType = getCellType(for: indexPath) else { return }
+
+        var selectedItem: DetailItemType?
+
+        switch cellType {
+        case .spotlight:
+            if let item = viewModel.spotlightItems.first {
+                selectedItem = .banner(item)
+            }
+        case .cash:
+            if let item = viewModel.cashInfo {
+                selectedItem = .service(item)
+            }
+        case .productsCarousel:
+            if let item = viewModel.products.first {
+                selectedItem = .product(item)
+            }
+        default:
+            break
+        }
+
+        if let selectedItem = selectedItem {
+            delegate?.didSelectItem(selectedItem)
+        }
     }
 }
 
@@ -77,5 +102,12 @@ extension ProductListViewController {
         default:
             return UITableView.automaticDimension
         }
+    }
+}
+
+extension ProductListViewController: SpotlightCarouselTableViewCellDelegate {
+    func spotlightCarouselTableViewCell(_ cell: SpotlightCarouselTableViewCell, didSelectItem item: SpotlightItem) {
+        let selectedItem = DetailItemType.banner(item)
+        delegate?.didSelectItem(selectedItem)
     }
 }

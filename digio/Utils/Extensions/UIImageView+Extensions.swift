@@ -28,7 +28,7 @@ extension UIImageView {
     }
 
     private func applyShadow(cornerRadius: CGFloat? = nil) {
-        guard let superview = self.superview else { return }
+        guard let superview = superview else { return }
 
         superview.layer.shadowColor = UIColor.black.cgColor
         superview.layer.shadowOpacity = 0.25
@@ -40,6 +40,14 @@ extension UIImageView {
             superview.layer.shadowPath = UIBezierPath(roundedRect: superview.bounds, cornerRadius: cornerRadius).cgPath
         } else {
             superview.layer.shadowPath = UIBezierPath(rect: superview.bounds).cgPath
+        }
+    }
+
+    func setImage(named imageName: String?, placeholder: UIImage? = nil) {
+        if let imageName = imageName, let image = UIImage(named: imageName) {
+            self.image = image
+        } else {
+            image = placeholder
         }
     }
 }

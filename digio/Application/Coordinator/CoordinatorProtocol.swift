@@ -11,4 +11,5 @@ import UIKit
 protocol CoordinatorProtocol {
     var navigationController: UINavigationController { get set }
     func start()
+    func navigate(to destination: AppDestination)
 }

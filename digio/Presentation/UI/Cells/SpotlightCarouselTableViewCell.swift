@@ -9,6 +9,10 @@ import Foundation
 import TinyConstraints
 import UIKit
 
+protocol SpotlightCarouselTableViewCellDelegate: AnyObject {
+    func spotlightCarouselTableViewCell(_ cell: SpotlightCarouselTableViewCell, didSelectItem item: SpotlightItem)
+}
+
 class SpotlightCarouselTableViewCell: UITableViewCell {
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -25,10 +29,12 @@ class SpotlightCarouselTableViewCell: UITableViewCell {
         return collectionView
     }()
 
+    weak var delegate: SpotlightCarouselTableViewCellDelegate?
     private var spotlightItems: [SpotlightItem] = []
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        selectionStyle = .none 
         setupCollectionView()
     }
 
@@ -66,5 +72,10 @@ extension SpotlightCarouselTableViewCell: UICollectionViewDataSource, UICollecti
         let item = spotlightItems[indexPath.item]
         cell.configure(with: item)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedItem = spotlightItems[indexPath.item]
+        delegate?.spotlightCarouselTableViewCell(self, didSelectItem: selectedItem)
     }
 }

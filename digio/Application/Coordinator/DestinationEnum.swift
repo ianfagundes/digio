@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+enum AppDestination {
+    case detail(DetailItemType)
+}

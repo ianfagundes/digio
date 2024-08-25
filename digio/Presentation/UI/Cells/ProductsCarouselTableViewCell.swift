@@ -8,6 +8,10 @@
 import Foundation
 import UIKit
 
+protocol ProductsCarouselTableViewCellDelegate: AnyObject {
+    func productsCarouselTableViewCell(_ cell: ProductsCarouselTableViewCell, didSelectItem item: ProductItem)
+}
+
 class ProductsCarouselTableViewCell: UITableViewCell {
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -22,7 +26,8 @@ class ProductsCarouselTableViewCell: UITableViewCell {
         return collectionView
     }()
 
-    private var productCarrouselItems: [ProductItem] = []
+    weak var delegate: ProductsCarouselTableViewCellDelegate?
+    private var productCarouselItems: [ProductItem] = []
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -45,20 +50,25 @@ class ProductsCarouselTableViewCell: UITableViewCell {
     }
 
     func configure(with products: [ProductItem]) {
-        productCarrouselItems = products
+        productCarouselItems = products
         collectionView.reloadData()
     }
 }
 
 extension ProductsCarouselTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return productCarrouselItems.count
+        return productCarouselItems.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCarrouselCollectionViewCell.identifier, for: indexPath) as? ProductCarrouselCollectionViewCell else { return UICollectionViewCell() }
-        let item = productCarrouselItems[indexPath.item]
+        let item = productCarouselItems[indexPath.item]
         cell.configure(with: item)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedItem = productCarouselItems[indexPath.item]
+        delegate?.productsCarouselTableViewCell(self, didSelectItem: selectedItem)
     }
 }

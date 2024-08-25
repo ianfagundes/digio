@@ -19,7 +19,7 @@ class ProductListViewModel: ProductListViewModelProtocol {
     
     private(set) var products: [ProductItem] = []
     private(set) var spotlightItems: [SpotlightItem] = []
-    private(set) var cashInfo: CashInfo?
+    private(set) var cashInfo: CashInfoItem?
     private(set) var cashTitle: String?
     
     init(fetchProductsUseCase: FetchProductsUseCaseProtocol) {
