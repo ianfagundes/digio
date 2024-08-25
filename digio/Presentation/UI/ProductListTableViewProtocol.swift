@@ -32,8 +32,9 @@ extension ProductListViewController: UITableViewDataSource, UITableViewDelegate 
 
         case .cashTitle:
             let cell = UITableViewCell()
-            cell.textLabel?.text = viewModel.cashTitle
-            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 24)
+            if let digioCashText = viewModel.cashTitle {
+                cell.textLabel?.attributedText = configureCashTitleText(digioCashText)
+            }
             cell.selectionStyle = .none
             return cell
 
@@ -45,8 +46,8 @@ extension ProductListViewController: UITableViewDataSource, UITableViewDelegate 
 
         case .productsTitle:
             let cell = UITableViewCell()
-            cell.textLabel?.text = "Produtos"
-            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 24)
+            let productsText = "Produtos"
+            cell.textLabel?.attributedText = configureProductTitleText(productsText)
             cell.selectionStyle = .none
             return cell
 
@@ -109,5 +110,39 @@ extension ProductListViewController: SpotlightCarouselTableViewCellDelegate {
     func spotlightCarouselTableViewCell(_ cell: SpotlightCarouselTableViewCell, didSelectItem item: SpotlightItem) {
         let selectedItem = DetailItemType.banner(item)
         delegate?.didSelectItem(selectedItem)
+    }
+}
+
+extension ProductListViewController {
+    private func configureText(_ text: String, styles: [(text: String, color: UIColor)]) -> NSAttributedString {
+        let attributedString = NSMutableAttributedString(string: text)
+        let boldFont = UIFont.boldSystemFont(ofSize: 24)
+
+        for style in styles {
+            let range = (text as NSString).range(of: style.text)
+            attributedString.addAttributes([.font: boldFont, .foregroundColor: style.color], range: range)
+        }
+
+        return attributedString
+    }
+}
+
+extension ProductListViewController {
+    private func configureCashTitleText(_ text: String) -> NSAttributedString {
+        let blueColor = UIColor(red: 0.078, green: 0.163, blue: 0.337, alpha: 1.0)
+        let grayColor = UIColor.gray
+
+        let words = text.split(separator: " ")
+        guard words.count >= 2 else { return NSAttributedString(string: text) }
+
+        return configureText(text, styles: [
+            (text: String(words[0]), color: blueColor),
+            (text: String(words[1]), color: grayColor)
+        ])
+    }
+
+    private func configureProductTitleText(_ text: String) -> NSAttributedString {
+        let blueColor = UIColor(red: 0.078, green: 0.163, blue: 0.337, alpha: 1.0)
+        return configureText(text, styles: [(text: text, color: blueColor)])
     }
 }

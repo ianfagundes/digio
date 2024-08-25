@@ -41,6 +41,7 @@
 		1472E15D2C77D3D9009CA7C3 /* digioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1472E15C2C77D3D9009CA7C3 /* digioTests.swift */; };
 		1472E1672C77D3D9009CA7C3 /* digioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1472E1662C77D3D9009CA7C3 /* digioUITests.swift */; };
 		1472E1692C77D3D9009CA7C3 /* digioUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1472E1682C77D3D9009CA7C3 /* digioUITestsLaunchTests.swift */; };
+		14743F812C7BEC1300F04CB1 /* NSMutableAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14743F802C7BEC1300F04CB1 /* NSMutableAttributedString+Extensions.swift */; };
 		14D50F8E2C7AAF12005D91C8 /* ProductCarrouselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D50F8D2C7AAF12005D91C8 /* ProductCarrouselCollectionViewCell.swift */; };
 		14D50F922C7AB068005D91C8 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D50F912C7AB068005D91C8 /* UIImageView+Extensions.swift */; };
 		14D50F942C7AB311005D91C8 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D50F932C7AB311005D91C8 /* UIView+Extensions.swift */; };
@@ -106,6 +107,7 @@
 		1472E1622C77D3D9009CA7C3 /* digioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = digioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1472E1662C77D3D9009CA7C3 /* digioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = digioUITests.swift; sourceTree = "<group>"; };
 		1472E1682C77D3D9009CA7C3 /* digioUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = digioUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		14743F802C7BEC1300F04CB1 /* NSMutableAttributedString+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Extensions.swift"; sourceTree = "<group>"; };
 		14BEFCD02C7B75E400F9F4E5 /* TinyConstraints.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyConstraints.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		14D50F8D2C7AAF12005D91C8 /* ProductCarrouselCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCarrouselCollectionViewCell.swift; sourceTree = "<group>"; };
 		14D50F912C7AB068005D91C8 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 			children = (
 				14D50F912C7AB068005D91C8 /* UIImageView+Extensions.swift */,
 				14D50F932C7AB311005D91C8 /* UIView+Extensions.swift */,
+				14743F802C7BEC1300F04CB1 /* NSMutableAttributedString+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -639,6 +642,7 @@
 				1472E1482C77D3D8009CA7C3 /* SceneDelegate.swift in Sources */,
 				14D50F942C7AB311005D91C8 /* UIView+Extensions.swift in Sources */,
 				144A7DEB2C7972ED005442AE /* AppCoordinator.swift in Sources */,
+				14743F812C7BEC1300F04CB1 /* NSMutableAttributedString+Extensions.swift in Sources */,
 				14533D432C7802A90095F4E5 /* CashInfoItem.swift in Sources */,
 				14533D482C7804B90095F4E5 /* FileFetchProductsUseCaseProtocol.swift in Sources */,
 				14533D3B2C7800650095F4E5 /* RemoteProductRepository.swift in Sources */,
