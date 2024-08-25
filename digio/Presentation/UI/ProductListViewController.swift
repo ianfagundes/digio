@@ -27,6 +27,12 @@ class ProductListViewController: UIViewController, ProductListViewModelDelegate 
         return tv
     }()
 
+    private let greetingView: GreetingView = {
+        let icon = UIImage(named: "Image")
+        let view = GreetingView(icon: icon)
+        return view
+    }()
+    
     private let cashTitle: UILabel = {
         let lb = UILabel()
         lb.textColor = .black
@@ -60,6 +66,7 @@ class ProductListViewController: UIViewController, ProductListViewModelDelegate 
 
     private func setupUI() {
         view.backgroundColor = .white
+        view.addSubview(greetingView)
         view.addSubview(productsTableView)
         view.addSubview(cashTitle)
         view.addSubview(productsTitle)
@@ -68,7 +75,12 @@ class ProductListViewController: UIViewController, ProductListViewModelDelegate 
     }
 
     private func setupLayout() {
-        productsTableView.topToSuperview(usingSafeArea: true)
+        greetingView.topToSuperview(offset: 16, usingSafeArea: true)
+        greetingView.leadingToSuperview(offset: 42)
+        greetingView.trailingToSuperview(offset: 42)
+        greetingView.height(44)
+        
+        productsTableView.topToBottom(of: greetingView, offset: 16)
         productsTableView.bottomToSuperview()
         productsTableView.leadingToSuperview(offset: 16)
         productsTableView.trailingToSuperview(offset: 16)
