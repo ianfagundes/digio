@@ -9,14 +9,14 @@
 import XCTest
 
 class RemoteProductRepositoryTests: XCTestCase {
-    private func makeSUT(url: URL = URLFactory.makeProductsURL()) -> (sut: RemoteProductRepository, client: HttpClientSpy) {
+    private func makeSUT(url: URL = makeUrl()) -> (sut: RemoteProductRepository, client: HttpClientSpy) {
         let clientSpy = HttpClientSpy()
         let sut = RemoteProductRepository(client: clientSpy, url: url)
         return (sut, clientSpy)
     }
 
     func test_fetchProducts_callsHttpClientWithCorrectURL() {
-        let url = URLFactory.makeProductsURL()
+        let url = makeUrl()
         let (sut, clientSpy) = makeSUT(url: url)
 
         sut.fetchProducts { _ in }
@@ -24,8 +24,7 @@ class RemoteProductRepositoryTests: XCTestCase {
     }
 
     func test_fetchProducts_deliversProductResponseOnSuccess() {
-        let url = URLFactory.makeProductsURL()
-        let (sut, clientSpy) = makeSUT(url: url)
+        let (sut, clientSpy) = makeSUT(url: makeUrl())
 
         let productResponse = ProductResponse(
             spotlight: [SpotlightItem(name: "Test", bannerURL: "https://example.com/banner", description: "Test Description")],
@@ -51,8 +50,7 @@ class RemoteProductRepositoryTests: XCTestCase {
     }
 
     func test_fetchProducts_deliversErrorOnClientFailure() {
-        let url = URLFactory.makeProductsURL()
-        let (sut, clientSpy) = makeSUT(url: url)
+        let (sut, clientSpy) = makeSUT(url: makeUrl())
         let expectedError = NSError(domain: "test", code: 0)
 
         var receivedResult: Result<ProductResponse, Error>?

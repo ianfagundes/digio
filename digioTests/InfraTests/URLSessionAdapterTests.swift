@@ -11,7 +11,7 @@ import XCTest
 class URLSessionAdapterTests: XCTestCase {
     // is valid case (Url test)
     func test_getFromURL_performsRequestWithCorrectURL() {
-        let url = URLFactory.makeProductsURL()
+        let url = makeUrl()
         let sut = makeSUT()
 
         let exp = expectation(description: "waiting")
@@ -29,8 +29,8 @@ class URLSessionAdapterTests: XCTestCase {
 
     // is valid case ( data = true, response = true, error = nil)
     func test_getFromURL_deliversDataOnWithCode200() {
-        let expectedData = DataFactory.makeValidData()
-        let response = HTTPURLResponse(url: URLFactory.makeProductsURL(), statusCode: 200, httpVersion: nil, headerFields: nil)!
+        let expectedData = makeValidData()
+        let response = HTTPURLResponse(url: makeUrl(), statusCode: 200, httpVersion: nil, headerFields: nil)!
 
         expectResult(.success(expectedData), when: (data: expectedData, response: response, error: nil))
     }
@@ -39,12 +39,12 @@ class URLSessionAdapterTests: XCTestCase {
     func test_getFromURL_failsOnRequestError() {
         let expectedError = NetworkError.unknown
 
-        expectResult(.failure(expectedError), when: (data: nil, response: HTTPURLResponse(url: URLFactory.makeProductsURL(), statusCode: 500, httpVersion: nil, headerFields: nil)!, error: expectedError))
+        expectResult(.failure(expectedError), when: (data: nil, response: HTTPURLResponse(url: makeUrl(), statusCode: 500, httpVersion: nil, headerFields: nil)!, error: expectedError))
     }
     
     // is valid case ( data = nil, response = true, error = nil)
     func test_getFromURL_failsOnNilData() {
-        let response = HTTPURLResponse(url: URLFactory.makeProductsURL(), statusCode: 200, httpVersion: nil, headerFields: nil)!
+        let response = HTTPURLResponse(url: makeUrl(), statusCode: 200, httpVersion: nil, headerFields: nil)!
         expectResult(.failure(NetworkError.noData), when: (data: nil, response: response, error: nil))
     }
 }
@@ -63,7 +63,7 @@ extension URLSessionAdapterTests {
         URLProtocolStub.simulate(data: stub.data, response: stub.response, error: stub.error)
         let exp = expectation(description: "waiting")
 
-        sut.get(from: URLFactory.makeProductsURL()) { receivedResult in
+        sut.get(from: makeUrl()) { receivedResult in
             switch (expectedResult, receivedResult) {
             case let (.failure(expectedError), .failure(receivedError)):
                 XCTAssertEqual(expectedError, receivedError as? NetworkError, file: file, line: line)
