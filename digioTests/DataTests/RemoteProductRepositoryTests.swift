@@ -32,7 +32,7 @@ class RemoteProductRepositoryTests: XCTestCase {
             products: [ProductItem(name: "Product", imageURL: "https://example.com/image", description: "Product Description")],
             cash: CashInfoItem(title: "Cash", bannerURL: "https://example.com/cash", description: "Cash Description")
         )
-
+        
         let data = try! JSONEncoder().encode(productResponse)
 
         var receivedResult: Result<ProductResponse, Error>?

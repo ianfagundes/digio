@@ -9,18 +9,10 @@
 import XCTest
 
 class URLSessionAdapterTests: XCTestCase {
-    
-    private func makeSUT() -> (sut: URLSessionAdapter, session: URLSession) {
-        let configuration = URLSessionConfiguration.default
-        configuration.protocolClasses = [URLProtocolStub.self]
-        let session = URLSession(configuration: configuration)
-        let sut = URLSessionAdapter(session: session)
-        return (sut, session)
-    }
-    
+    // is valid case (Url test)
     func test_getFromURL_performsRequestWithCorrectURL() {
         let url = URLFactory.makeProductsURL()
-        let (sut, _) = makeSUT()
+        let sut = makeSUT()
 
         let exp = expectation(description: "waiting")
 
@@ -35,69 +27,50 @@ class URLSessionAdapterTests: XCTestCase {
         wait(for: [exp], timeout: 1)
     }
 
+    // is valid case ( data = true, response = true, error = nil)
     func test_getFromURL_deliversDataOnWithCode200() {
-        let url = URLFactory.makeProductsURL()
-        let (sut, _) = makeSUT()
+        let expectedData = DataFactory.makeValidData()
+        let response = HTTPURLResponse(url: URLFactory.makeProductsURL(), statusCode: 200, httpVersion: nil, headerFields: nil)!
 
-        let expectedData = Data("{\"status\":\"valid data\"}".utf8)
-        URLProtocolStub.stub(data: expectedData, response: HTTPURLResponse(url: url, statusCode: 200, httpVersion: nil, headerFields: nil), error: nil)
-
-        let exp = expectation(description: "waiting")
-
-        sut.get(from: url) { result in
-            switch result {
-            case let .success(data):
-                XCTAssertEqual(data, expectedData)
-            case .failure:
-                XCTFail("Expected success, got \(result) instead")
-            }
-            exp.fulfill()
-        }
-
-        wait(for: [exp], timeout: 1)
+        expectResult(.success(expectedData), when: (data: expectedData, response: response, error: nil))
     }
 
+    // is valid case ( data = nil, response = nil, error = true)
     func test_getFromURL_failsOnRequestError() {
-        let url = URLFactory.makeProductsURL()
-        let (sut, _) = makeSUT()
-        
         let expectedError = NetworkError.unknown
-        URLProtocolStub.stub(data: nil, response: nil, error: expectedError)
-        
-        let exp = expectation(description: "waiting")
-        
-        sut.get(from: url) { result in
-            switch result {
-            case .success:
-                XCTFail("Expected failure, got success instead")
-            case .failure(let receivedError):
-                XCTAssertEqual(receivedError as? NetworkError, expectedError)
-            }
-            exp.fulfill()
-        }
-        
-        wait(for: [exp], timeout: 1)
+
+        expectResult(.failure(expectedError), when: (data: nil, response: HTTPURLResponse(url: URLFactory.makeProductsURL(), statusCode: 500, httpVersion: nil, headerFields: nil)!, error: expectedError))
     }
     
+    // is valid case ( data = nil, response = true, error = nil)
     func test_getFromURL_failsOnNilData() {
-        let url = URLFactory.makeProductsURL()
-        let (sut, _) = makeSUT()
-        let response = HTTPURLResponse(url: url, statusCode: 200, httpVersion: nil, headerFields: nil)
-            
-        URLProtocolStub.stub(data: nil, response: response, error: nil)
+        let response = HTTPURLResponse(url: URLFactory.makeProductsURL(), statusCode: 200, httpVersion: nil, headerFields: nil)!
+        expectResult(.failure(NetworkError.noData), when: (data: nil, response: response, error: nil))
+    }
+}
 
+extension URLSessionAdapterTests {
+    private func makeSUT() -> URLSessionAdapter {
+        let configuration = URLSessionConfiguration.default
+        configuration.protocolClasses = [URLProtocolStub.self]
+        let session = URLSession(configuration: configuration)
+        return URLSessionAdapter(session: session)
+    }
+
+    private func expectResult(_ expectedResult: Result<Data, NetworkError>, when stub: (data: Data?, response: HTTPURLResponse, error: Error?), file: StaticString = #file, line: UInt = #line) {
+        let sut = makeSUT()
+
+        URLProtocolStub.simulate(data: stub.data, response: stub.response, error: stub.error)
         let exp = expectation(description: "waiting")
 
-        sut.get(from: url) { result in
-            switch result {
-            case .failure(let error):
-                if case NetworkError.noData = error {
-                    XCTAssertTrue(true)
-                } else {
-                    XCTFail("Expected noData error, but received a different error: \(error)")
-                }
+        sut.get(from: URLFactory.makeProductsURL()) { receivedResult in
+            switch (expectedResult, receivedResult) {
+            case let (.failure(expectedError), .failure(receivedError)):
+                XCTAssertEqual(expectedError, receivedError as? NetworkError, file: file, line: line)
+            case let (.success(expectedData), .success(receivedData)):
+                XCTAssertEqual(expectedData, receivedData, file: file, line: line)
             default:
-                XCTFail("Expected fail, but received success instead. \(result)")
+                XCTFail("Expected \(expectedResult), but got \(receivedResult) instead.", file: file, line: line)
             }
             exp.fulfill()
         }
@@ -120,7 +93,7 @@ class URLProtocolStub: URLProtocol {
         URLProtocolStub.emit = completion
     }
 
-    static func stub(data: Data?, response: URLResponse?, error: Error?) {
+    static func simulate(data: Data?, response: URLResponse?, error: Error?) {
         stub = Stub(data: data, response: response, error: error)
     }
 
@@ -142,19 +115,17 @@ class URLProtocolStub: URLProtocol {
             } else {
                 client?.urlProtocol(self, didLoad: Data())
             }
-            
+
             if let response = stub.response {
                 client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed)
             }
-            
+
             if let error = stub.error {
                 client?.urlProtocol(self, didFailWithError: error)
-            } else {
-                client?.urlProtocolDidFinishLoading(self)
             }
+            client?.urlProtocolDidFinishLoading(self)
         }
     }
-    
+
     override open func stopLoading() {}
 }
-
