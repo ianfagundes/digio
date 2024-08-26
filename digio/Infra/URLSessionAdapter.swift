@@ -17,16 +17,16 @@ class URLSessionAdapter: HttpGetClientProtocol {
     func get(from url: URL, completion: @escaping (Result<Data, Error>) -> Void) {
         let task = session.dataTask(with: url) { data, response, error in
             if let error = error {
-                completion(.failure(error))
+                completion(.failure(NetworkError.unknown))
                 return
             }
 
-            guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+            guard let httpResponse = response as? HTTPURLResponse, (200 ... 299).contains(httpResponse.statusCode) else {
                 completion(.failure(NetworkError.invalidResponse))
                 return
             }
 
-            guard let data = data else {
+            guard let data = data, !data.isEmpty else {
                 completion(.failure(NetworkError.noData))
                 return
             }
