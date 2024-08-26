@@ -19,6 +19,10 @@ func makeUrl() -> URL {
     return URL(string: "https://7hgi9vtkdc.execute-api.sa-east-1.amazonaws.com/sandbox/products")!
 }
 
-func makeHttpResponse() -> HTTPURLResponse {
-    return HTTPURLResponse(url: makeUrl(), statusCode: 200, httpVersion: nil, headerFields: nil)!
+func makeInvalidUrl() -> URL {
+    return URL(string: "invalid-url")!
+}
+
+func makeHttpResponse(statusCode: Int = 200) -> HTTPURLResponse {
+    return HTTPURLResponse(url: makeUrl(), statusCode: statusCode, httpVersion: nil, headerFields: nil)!
 }

@@ -12,8 +12,6 @@
 		140E5C282C7B6C7500113EF6 /* DestinationEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140E5C272C7B6C7500113EF6 /* DestinationEnum.swift */; };
 		140E5C2A2C7B6CE900113EF6 /* DetailsItemTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140E5C292C7B6CE900113EF6 /* DetailsItemTypeEnum.swift */; };
 		141947292C7CCFD600D224FB /* URLSessionAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141947282C7CCFD600D224FB /* URLSessionAdapterTests.swift */; };
-		1419472B2C7D1AC900D224FB /* URLFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1419472A2C7D1AC900D224FB /* URLFactory.swift */; };
-		1419472E2C7D26DB00D224FB /* DataFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1419472D2C7D26DB00D224FB /* DataFactory.swift */; };
 		143A98242C78D5950070EE52 /* ProductListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143A98232C78D5950070EE52 /* ProductListViewModelProtocol.swift */; };
 		143A98272C78D7040070EE52 /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143A98262C78D7040070EE52 /* ProductListViewModel.swift */; };
 		143A982C2C7910C60070EE52 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143A982B2C7910C60070EE52 /* ProductListViewController.swift */; };
@@ -44,6 +42,7 @@
 		1472E15D2C77D3D9009CA7C3 /* RemoteProductRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1472E15C2C77D3D9009CA7C3 /* RemoteProductRepositoryTests.swift */; };
 		14743F812C7BEC1300F04CB1 /* NSMutableAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14743F802C7BEC1300F04CB1 /* NSMutableAttributedString+Extensions.swift */; };
 		14743F832C7BF31400F04CB1 /* GreetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14743F822C7BF31400F04CB1 /* GreetingView.swift */; };
+		148365732C7D35F1001D43B6 /* TestFactories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148365722C7D35F1001D43B6 /* TestFactories.swift */; };
 		14D50F8E2C7AAF12005D91C8 /* ProductCarrouselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D50F8D2C7AAF12005D91C8 /* ProductCarrouselCollectionViewCell.swift */; };
 		14D50F922C7AB068005D91C8 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D50F912C7AB068005D91C8 /* UIImageView+Extensions.swift */; };
 		14D50F942C7AB311005D91C8 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D50F932C7AB311005D91C8 /* UIView+Extensions.swift */; };
@@ -68,8 +67,6 @@
 		140E5C272C7B6C7500113EF6 /* DestinationEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationEnum.swift; sourceTree = "<group>"; };
 		140E5C292C7B6CE900113EF6 /* DetailsItemTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsItemTypeEnum.swift; sourceTree = "<group>"; };
 		141947282C7CCFD600D224FB /* URLSessionAdapterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionAdapterTests.swift; sourceTree = "<group>"; };
-		1419472A2C7D1AC900D224FB /* URLFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLFactory.swift; sourceTree = "<group>"; };
-		1419472D2C7D26DB00D224FB /* DataFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFactory.swift; sourceTree = "<group>"; };
 		143A98232C78D5950070EE52 /* ProductListViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModelProtocol.swift; sourceTree = "<group>"; };
 		143A98262C78D7040070EE52 /* ProductListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModel.swift; sourceTree = "<group>"; };
 		143A982B2C7910C60070EE52 /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +102,7 @@
 		1472E1682C77D3D9009CA7C3 /* digioUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = digioUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		14743F802C7BEC1300F04CB1 /* NSMutableAttributedString+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Extensions.swift"; sourceTree = "<group>"; };
 		14743F822C7BF31400F04CB1 /* GreetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingView.swift; sourceTree = "<group>"; };
+		148365722C7D35F1001D43B6 /* TestFactories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFactories.swift; sourceTree = "<group>"; };
 		14BEFCD02C7B75E400F9F4E5 /* TinyConstraints.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyConstraints.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		14D50F8D2C7AAF12005D91C8 /* ProductCarrouselCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCarrouselCollectionViewCell.swift; sourceTree = "<group>"; };
 		14D50F912C7AB068005D91C8 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
@@ -156,8 +154,7 @@
 		1419472C2C7D1ACF00D224FB /* Factories */ = {
 			isa = PBXGroup;
 			children = (
-				1419472A2C7D1AC900D224FB /* URLFactory.swift */,
-				1419472D2C7D26DB00D224FB /* DataFactory.swift */,
+				148365722C7D35F1001D43B6 /* TestFactories.swift */,
 			);
 			path = Factories;
 			sourceTree = "<group>";
@@ -612,8 +609,7 @@
 			files = (
 				141947292C7CCFD600D224FB /* URLSessionAdapterTests.swift in Sources */,
 				1472E15D2C77D3D9009CA7C3 /* RemoteProductRepositoryTests.swift in Sources */,
-				1419472E2C7D26DB00D224FB /* DataFactory.swift in Sources */,
-				1419472B2C7D1AC900D224FB /* URLFactory.swift in Sources */,
+				148365732C7D35F1001D43B6 /* TestFactories.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

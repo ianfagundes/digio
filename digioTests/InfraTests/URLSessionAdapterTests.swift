@@ -9,8 +9,61 @@
 import XCTest
 
 class URLSessionAdapterTests: XCTestCase {
-    // is valid case (Url test)
-    func test_getFromURL_performsRequestWithCorrectURL() {
+    // MARK: - Resposta Bem-Sucedida com Dados Válidos
+
+    func test__deliversDataOnWithCode200() {
+        let expectedData = makeValidData()
+        let response = HTTPURLResponse(url: makeUrl(), statusCode: 200, httpVersion: nil, headerFields: nil)!
+
+        expectResult(.success(expectedData), when: (data: expectedData, response: response, error: nil))
+    }
+
+    // MARK: - Erro na Requisição (Erro no Cliente)
+
+    func test_failsOnRequestError() {
+        let expectedError = NetworkError.invalidResponse
+
+        expectResult(.failure(expectedError), when: (data: nil, response: HTTPURLResponse(url: makeUrl(), statusCode: 500, httpVersion: nil, headerFields: nil)!, error: nil))
+    }
+
+    // MARK: - Resposta Bem-Sucedida sem Dados ou com Dados Vazios
+
+    func test_failsOnNilData_EmptyData() {
+        let response = HTTPURLResponse(url: makeUrl(), statusCode: 200, httpVersion: nil, headerFields: nil)!
+        expectResult(.failure(NetworkError.noData), when: (data: nil, response: response, error: nil))
+    }
+
+    // MARK: - Resposta com Código HTTP de Erro (4xx ou 5xx)
+
+    func test_failsOnNon200HTTPResponse() {
+        let response = HTTPURLResponse(url: makeUrl(), statusCode: 404, httpVersion: nil, headerFields: nil)!
+        expectResult(.failure(NetworkError.invalidResponse), when: (data: nil, response: response, error: nil))
+    }
+
+    // MARK: - Requisição com a URL Incorreta
+
+    func test_failsOnInvalidURL() {
+        let invalidURL = URL(string: "invalid-url")!
+        let sut = makeSUT()
+
+        let exp = expectation(description: "waiting")
+
+        sut.get(from: invalidURL) { result in
+            switch result {
+            case let .failure(error):
+                XCTAssertEqual(error as? NetworkError, NetworkError.invalidURL)
+            default:
+                XCTFail("Expected failure, got success instead")
+            }
+            exp.fulfill()
+        }
+
+        wait(for: [exp], timeout: 1)
+    }
+
+    // MARK: - Requisição com a URL Correta
+
+    func test_performsRequestWithCorrectURL() {
         let url = makeUrl()
         let sut = makeSUT()
 
@@ -26,28 +79,30 @@ class URLSessionAdapterTests: XCTestCase {
 
         wait(for: [exp], timeout: 1)
     }
+    
+    // MARK: - Requisição sem Conexão
+    func test_failsOnNoConnectivity() {
+        let expectedError = NetworkError.noConnectivity
 
-    // is valid case ( data = true, response = true, error = nil)
-    func test_getFromURL_deliversDataOnWithCode200() {
-        let expectedData = makeValidData()
-        let response = HTTPURLResponse(url: makeUrl(), statusCode: 200, httpVersion: nil, headerFields: nil)!
-
-        expectResult(.success(expectedData), when: (data: expectedData, response: response, error: nil))
-    }
-
-    // is valid case ( data = nil, response = nil, error = true)
-    func test_getFromURL_failsOnRequestError() {
-        let expectedError = NetworkError.unknown
-
-        expectResult(.failure(expectedError), when: (data: nil, response: HTTPURLResponse(url: makeUrl(), statusCode: 500, httpVersion: nil, headerFields: nil)!, error: expectedError))
+        expectResult(.failure(expectedError), when: (data: nil, response: nil, error: NSError(domain: NSURLErrorDomain, code: NSURLErrorNotConnectedToInternet, userInfo: nil)))
     }
     
-    // is valid case ( data = nil, response = true, error = nil)
-    func test_getFromURL_failsOnNilData() {
-        let response = HTTPURLResponse(url: makeUrl(), statusCode: 200, httpVersion: nil, headerFields: nil)!
-        expectResult(.failure(NetworkError.noData), when: (data: nil, response: response, error: nil))
+    // MARK: - Teste HttpError
+    func test_failsOnHTTPError() {
+        let expectedError = NetworkError.httpError(500)
+
+        expectResult(.failure(expectedError), when: (data: nil, response: HTTPURLResponse(url: makeUrl(), statusCode: 500, httpVersion: nil, headerFields: nil)!, error: nil))
+    }
+    
+    // MARK: - Teste Não Autorizado
+    func test_failsOnUnauthorized() {
+        let expectedError = NetworkError.unauthorized
+
+        expectResult(.failure(expectedError), when: (data: nil, response: HTTPURLResponse(url: makeUrl(), statusCode: 401, httpVersion: nil, headerFields: nil)!, error: nil))
     }
 }
+
+// MARK: - Funcões de Helper
 
 extension URLSessionAdapterTests {
     private func makeSUT() -> URLSessionAdapter {
@@ -57,7 +112,7 @@ extension URLSessionAdapterTests {
         return URLSessionAdapter(session: session)
     }
 
-    private func expectResult(_ expectedResult: Result<Data, NetworkError>, when stub: (data: Data?, response: HTTPURLResponse, error: Error?), file: StaticString = #file, line: UInt = #line) {
+    private func expectResult(_ expectedResult: Result<Data, NetworkError>, when stub: (data: Data?, response: HTTPURLResponse?, error: Error?), file: StaticString = #file, line: UInt = #line) {
         let sut = makeSUT()
 
         URLProtocolStub.simulate(data: stub.data, response: stub.response, error: stub.error)
@@ -78,6 +133,8 @@ extension URLSessionAdapterTests {
         wait(for: [exp], timeout: 1)
     }
 }
+
+// MARK: - URLProtocolStub
 
 class URLProtocolStub: URLProtocol {
     private static var stub: Stub?
