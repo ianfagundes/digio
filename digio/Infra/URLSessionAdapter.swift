@@ -16,7 +16,7 @@ class URLSessionAdapter: HttpGetClientProtocol {
 
     func get(from url: URL, completion: @escaping (Result<Data, Error>) -> Void) {
         let task = session.dataTask(with: url) { data, response, error in
-            if let error = error {
+            if let _ = error {
                 completion(.failure(NetworkError.unknown))
                 return
             }

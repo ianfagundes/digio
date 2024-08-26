@@ -9,13 +9,18 @@
 import XCTest
 
 class URLSessionAdapterTests: XCTestCase {
-    func test_getFromURL_performsRequestWithCorrectURL() {
-        let url = URL(string: "https://7hgi9vtkdc.execute-api.sa-east-1.amazonaws.com/sandbox/products")!
+    
+    private func makeSUT() -> (sut: URLSessionAdapter, session: URLSession) {
         let configuration = URLSessionConfiguration.default
         configuration.protocolClasses = [URLProtocolStub.self]
         let session = URLSession(configuration: configuration)
-
         let sut = URLSessionAdapter(session: session)
+        return (sut, session)
+    }
+    
+    func test_getFromURL_performsRequestWithCorrectURL() {
+        let url = URLFactory.makeProductsURL()
+        let (sut, _) = makeSUT()
 
         let exp = expectation(description: "waiting")
 
@@ -31,12 +36,8 @@ class URLSessionAdapterTests: XCTestCase {
     }
 
     func test_getFromURL_deliversDataOnWithCode200() {
-        let url = URL(string: "https://7hgi9vtkdc.execute-api.sa-east-1.amazonaws.com/sandbox/products")!
-        let configuration = URLSessionConfiguration.default
-        configuration.protocolClasses = [URLProtocolStub.self]
-        let session = URLSession(configuration: configuration)
-
-        let sut = URLSessionAdapter(session: session)
+        let url = URLFactory.makeProductsURL()
+        let (sut, _) = makeSUT()
 
         let expectedData = Data("{\"status\":\"valid data\"}".utf8)
         URLProtocolStub.stub(data: expectedData, response: HTTPURLResponse(url: url, statusCode: 200, httpVersion: nil, headerFields: nil), error: nil)
@@ -57,12 +58,8 @@ class URLSessionAdapterTests: XCTestCase {
     }
 
     func test_getFromURL_failsOnRequestError() {
-        let url = URL(string: "https://7hgi9vtkdc.execute-api.sa-east-1.amazonaws.com/sandbox/products")!
-        let configuration = URLSessionConfiguration.default
-        configuration.protocolClasses = [URLProtocolStub.self]
-        let session = URLSession(configuration: configuration)
-        
-        let sut = URLSessionAdapter(session: session)
+        let url = URLFactory.makeProductsURL()
+        let (sut, _) = makeSUT()
         
         let expectedError = NetworkError.unknown
         URLProtocolStub.stub(data: nil, response: nil, error: expectedError)
@@ -83,12 +80,8 @@ class URLSessionAdapterTests: XCTestCase {
     }
     
     func test_getFromURL_failsOnNilData() {
-        let url = URL(string: "https://7hgi9vtkdc.execute-api.sa-east-1.amazonaws.com/sandbox/products")!
-        let configuration = URLSessionConfiguration.default
-        configuration.protocolClasses = [URLProtocolStub.self]
-        let session = URLSession(configuration: configuration)
-
-        let sut = URLSessionAdapter(session: session)
+        let url = URLFactory.makeProductsURL()
+        let (sut, _) = makeSUT()
         let response = HTTPURLResponse(url: url, statusCode: 200, httpVersion: nil, headerFields: nil)
             
         URLProtocolStub.stub(data: nil, response: response, error: nil)
