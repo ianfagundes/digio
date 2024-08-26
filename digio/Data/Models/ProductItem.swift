@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ProductItem: Codable {
+struct ProductItem: Codable, Equatable {
     let name: String
     let imageURL: String
     let description: String

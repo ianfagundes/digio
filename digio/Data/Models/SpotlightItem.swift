@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SpotlightItem: Codable {
+struct SpotlightItem: Codable, Equatable {
     let name: String
     let bannerURL: String
     let description: String

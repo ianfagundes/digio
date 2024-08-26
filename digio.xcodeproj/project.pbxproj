@@ -38,7 +38,7 @@
 		1472E14D2C77D3D8009CA7C3 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 1472E14C2C77D3D8009CA7C3 /* Base */; };
 		1472E14F2C77D3D9009CA7C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1472E14E2C77D3D9009CA7C3 /* Assets.xcassets */; };
 		1472E1522C77D3D9009CA7C3 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 1472E1512C77D3D9009CA7C3 /* Base */; };
-		1472E15D2C77D3D9009CA7C3 /* digioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1472E15C2C77D3D9009CA7C3 /* digioTests.swift */; };
+		1472E15D2C77D3D9009CA7C3 /* RemoteProductRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1472E15C2C77D3D9009CA7C3 /* RemoteProductRepositoryTests.swift */; };
 		1472E1672C77D3D9009CA7C3 /* digioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1472E1662C77D3D9009CA7C3 /* digioUITests.swift */; };
 		1472E1692C77D3D9009CA7C3 /* digioUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1472E1682C77D3D9009CA7C3 /* digioUITestsLaunchTests.swift */; };
 		14743F812C7BEC1300F04CB1 /* NSMutableAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14743F802C7BEC1300F04CB1 /* NSMutableAttributedString+Extensions.swift */; };
@@ -104,7 +104,7 @@
 		1472E1512C77D3D9009CA7C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1472E1532C77D3D9009CA7C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1472E1582C77D3D9009CA7C3 /* digioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = digioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1472E15C2C77D3D9009CA7C3 /* digioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = digioTests.swift; sourceTree = "<group>"; };
+		1472E15C2C77D3D9009CA7C3 /* RemoteProductRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteProductRepositoryTests.swift; sourceTree = "<group>"; };
 		1472E1622C77D3D9009CA7C3 /* digioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = digioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1472E1662C77D3D9009CA7C3 /* digioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = digioUITests.swift; sourceTree = "<group>"; };
 		1472E1682C77D3D9009CA7C3 /* digioUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = digioUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -150,6 +150,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		141947222C7CB9CC00D224FB /* DataTests */ = {
+			isa = PBXGroup;
+			children = (
+				1472E15C2C77D3D9009CA7C3 /* RemoteProductRepositoryTests.swift */,
+			);
+			path = DataTests;
+			sourceTree = "<group>";
+		};
 		143A98222C78D5650070EE52 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -312,7 +320,7 @@
 		1472E15B2C77D3D9009CA7C3 /* digioTests */ = {
 			isa = PBXGroup;
 			children = (
-				1472E15C2C77D3D9009CA7C3 /* digioTests.swift */,
+				141947222C7CB9CC00D224FB /* DataTests */,
 			);
 			path = digioTests;
 			sourceTree = "<group>";
@@ -668,7 +676,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1472E15D2C77D3D9009CA7C3 /* digioTests.swift in Sources */,
+				1472E15D2C77D3D9009CA7C3 /* RemoteProductRepositoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
