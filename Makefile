@@ -80,7 +80,7 @@ lint:
 test:
 	@make clean_derived_data
 	@echo "Executando testes..."
-	@$(FASTLANE_BIN) run_tests
+	@$(FASTLANE_BIN) clean_and_test
 
 # Gerar build local
 build:

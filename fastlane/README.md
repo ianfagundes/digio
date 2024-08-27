@@ -15,13 +15,13 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ## iOS
 
-### ios run_tests
+### ios clean_and_test
 
 ```sh
-[bundle exec] fastlane ios run_tests
+[bundle exec] fastlane ios clean_and_test
 ```
 
-Executa testes
+Executa testes e gera relatório
 
 ### ios build
 
@@ -38,14 +38,6 @@ Gera build local
 ```
 
 Lint do código
-
-### ios test_and_report
-
-```sh
-[bundle exec] fastlane ios test_and_report
-```
-
-Executa testes e gera relatório
 
 ### ios generate_docs
 

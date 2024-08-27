@@ -1,12 +1,19 @@
 default_platform(:ios)
 
 platform :ios do
-  desc "Executa testes"
-  lane :run_tests do
+  desc "Executa testes e gera relatório"
+  lane :clean_and_test do
+    clear_derived_data
     scan(
       workspace: "digio.xcworkspace",
-      scheme: "digio"
+      scheme: "digio",
+      output_types: "html,junit",
+      output_directory: "./fastlane/reports/scan"
     )
+  end
+  
+  def clear_derived_data
+    sh "rm -rf ~/Library/Developer/Xcode/DerivedData"
   end
 
   desc "Gera build local"
@@ -22,14 +29,6 @@ platform :ios do
     lane :lint do
       sh "swiftlint"
     end
-
-  desc "Executa testes e gera relatório"
-  lane :test_and_report do
-    scan(
-      output_types: "html,junit",
-      output_directory: "./fastlane/reports/scan"
-    )
-  end
 
   desc "Gera documentação"
   lane :generate_docs do
