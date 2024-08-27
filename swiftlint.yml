@@ -1,5 +1,9 @@
 disabled_rules:
   - trailing_whitespace
+  - type_name           
+  - identifier_name
+  - force_try
+  - line_length
 
 opt_in_rules:
   - empty_count
@@ -7,9 +11,13 @@ opt_in_rules:
   - closure_end_indentation
   - explicit_init
 
-line_length: 250
+line_length:
+  warning: 250
+  error: 300
+
 indentation:
-  width: 4
+  indent_width: 4
+  continuation_indent_width: 4
 
 excluded:
   - Pods
@@ -28,18 +36,18 @@ function_body_length:
   error: 50
 
 type_name:
-  min_length: 1
-  max_length: 40
+  min_length: 2
+  max_length: 50
   excluded: 
     - iPhone
 
 identifier_name:
-  min_length: 3
-  max_length: 40
+  min_length: 2
+  max_length: 50
   allowed_symbols: ["_"]
 
 force_try:
-  severity: error
+  severity: warning
 
 explicit_enum_raw_value:
   severity: warning

@@ -1,0 +1,5 @@
+scheme "digio"
+device "iPhone 6s"
+output_directory "./fastlane/reports/scan"
+output_types "html,junit"
+clean true
