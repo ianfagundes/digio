@@ -11,6 +11,7 @@ setup: podfile_setup install_cocoapods install_swiftlint install_fastlane instal
 install_cocoapods:
 	@if [ -z "$(POD_BIN)" ]; then \
 		echo "CocoaPods não encontrado. Instalando..."; \
+		echo "⚠️  Aviso: Será solicitada a senha de administrador para instalar o CocoaPods."; \
 		sudo gem install cocoapods; \
 	else \
 		echo "CocoaPods já está instalado."; \
@@ -32,6 +33,7 @@ install_swiftlint:
 install_fastlane:
 	@if [ -z "$(FASTLANE_BIN)" ]; then \
 		echo "Fastlane não encontrado. Instalando..."; \
+		echo "⚠️  Aviso: Será solicitada a senha de administrador para instalar o Fastlane."; \
 		sudo gem install fastlane -NV; \
 	else \
 		echo "Fastlane já está instalado."; \
@@ -65,7 +67,8 @@ podfile_setup:
 # Limpar a pasta DerivedData
 clean_derived_data:
 	@echo "Limpando a pasta DerivedData..."
-	@sudo rm -rf ~/Library/Developer/Xcode/DerivedData
+	@echo "⚠️  Aviso: Será solicitada a senha de administrador para limpar a pasta DerivedData."; \
+	sudo rm -rf ~/Library/Developer/Xcode/DerivedData
 
 # Rodar o SwiftLint para verificar o código
 lint:
