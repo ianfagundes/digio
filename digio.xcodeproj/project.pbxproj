@@ -43,6 +43,8 @@
 		14743F812C7BEC1300F04CB1 /* NSMutableAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14743F802C7BEC1300F04CB1 /* NSMutableAttributedString+Extensions.swift */; };
 		14743F832C7BF31400F04CB1 /* GreetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14743F822C7BF31400F04CB1 /* GreetingView.swift */; };
 		148365732C7D35F1001D43B6 /* TestFactories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148365722C7D35F1001D43B6 /* TestFactories.swift */; };
+		148365762C7D4701001D43B6 /* ProductListViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148365752C7D4701001D43B6 /* ProductListViewModelTest.swift */; };
+		148365772C7D4787001D43B6 /* TestFactories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148365722C7D35F1001D43B6 /* TestFactories.swift */; };
 		14D50F8E2C7AAF12005D91C8 /* ProductCarrouselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D50F8D2C7AAF12005D91C8 /* ProductCarrouselCollectionViewCell.swift */; };
 		14D50F922C7AB068005D91C8 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D50F912C7AB068005D91C8 /* UIImageView+Extensions.swift */; };
 		14D50F942C7AB311005D91C8 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D50F932C7AB311005D91C8 /* UIView+Extensions.swift */; };
@@ -103,6 +105,7 @@
 		14743F802C7BEC1300F04CB1 /* NSMutableAttributedString+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Extensions.swift"; sourceTree = "<group>"; };
 		14743F822C7BF31400F04CB1 /* GreetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingView.swift; sourceTree = "<group>"; };
 		148365722C7D35F1001D43B6 /* TestFactories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFactories.swift; sourceTree = "<group>"; };
+		148365752C7D4701001D43B6 /* ProductListViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModelTest.swift; sourceTree = "<group>"; };
 		14BEFCD02C7B75E400F9F4E5 /* TinyConstraints.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyConstraints.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		14D50F8D2C7AAF12005D91C8 /* ProductCarrouselCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCarrouselCollectionViewCell.swift; sourceTree = "<group>"; };
 		14D50F912C7AB068005D91C8 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
@@ -320,6 +323,7 @@
 		1472E15B2C77D3D9009CA7C3 /* digioTests */ = {
 			isa = PBXGroup;
 			children = (
+				148365742C7D46F2001D43B6 /* Presentation */,
 				141947232C7CCCAA00D224FB /* InfraTests */,
 				141947222C7CB9CC00D224FB /* DataTests */,
 				1419472C2C7D1ACF00D224FB /* Factories */,
@@ -334,6 +338,14 @@
 				1472E1682C77D3D9009CA7C3 /* digioUITestsLaunchTests.swift */,
 			);
 			path = digioUITests;
+			sourceTree = "<group>";
+		};
+		148365742C7D46F2001D43B6 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				148365752C7D4701001D43B6 /* ProductListViewModelTest.swift */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		14D50F8F2C7AB049005D91C8 /* Utils */ = {
@@ -598,6 +610,7 @@
 				143A98272C78D7040070EE52 /* ProductListViewModel.swift in Sources */,
 				143A982E2C79166C0070EE52 /* ProductListCellTypeEnum.swift in Sources */,
 				14743F832C7BF31400F04CB1 /* GreetingView.swift in Sources */,
+				148365772C7D4787001D43B6 /* TestFactories.swift in Sources */,
 				143A98242C78D5950070EE52 /* ProductListViewModelProtocol.swift in Sources */,
 				140E5C282C7B6C7500113EF6 /* DestinationEnum.swift in Sources */,
 			);
@@ -609,6 +622,7 @@
 			files = (
 				141947292C7CCFD600D224FB /* URLSessionAdapterTests.swift in Sources */,
 				1472E15D2C77D3D9009CA7C3 /* RemoteProductRepositoryTests.swift in Sources */,
+				148365762C7D4701001D43B6 /* ProductListViewModelTest.swift in Sources */,
 				148365732C7D35F1001D43B6 /* TestFactories.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
