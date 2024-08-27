@@ -9,16 +9,22 @@ import Foundation
 import UIKit
 
 extension UIImageView {
-    func load(url: URL, withCornerRadius cornerRadius: CGFloat? = nil, contentMode: UIView.ContentMode = .scaleAspectFit, applyShadow: Bool = false) {
+    func load(url: URL, withCornerRadius cornerRadius: CGFloat? = nil, contentMode: UIView.ContentMode = .scaleAspectFill, applyShadow: Bool = false) {
         DispatchQueue.global().async { [weak self] in
             if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
                 DispatchQueue.main.async {
                     self?.image = image
                     self?.contentMode = contentMode
+                    self?.clipsToBounds = true
+                    
                     if let cornerRadius = cornerRadius {
                         self?.layer.cornerRadius = cornerRadius
-                        self?.layer.masksToBounds = true
+                    } else {
+                        self?.layer.cornerRadius = (self?.frame.height ?? 0) / 2
                     }
+                    
+                    self?.layer.masksToBounds = true
+
                     if applyShadow {
                         self?.applyShadow(cornerRadius: cornerRadius)
                     }
