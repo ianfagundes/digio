@@ -1,0 +1,5 @@
+git_url("https://github.com/ianfagundes/certificates_repo.git")
+storage_mode("git")
+type("development") 
+app_identifier(["br.com.ianfagundes.digio"])
+username("ianfag@icloud.com")
