@@ -21,7 +21,7 @@ class URLSessionAdapterTests: XCTestCase {
     // MARK: - Erro na Requisição (Erro no Cliente)
 
     func test_failsOnRequestError() {
-        let expectedError = NetworkError.invalidResponse
+        let expectedError = NetworkError.httpError(500)
 
         expectResult(.failure(expectedError), when: (data: nil, response: HTTPURLResponse(url: makeUrl(), statusCode: 500, httpVersion: nil, headerFields: nil)!, error: nil))
     }
@@ -37,7 +37,7 @@ class URLSessionAdapterTests: XCTestCase {
 
     func test_failsOnNon200HTTPResponse() {
         let response = HTTPURLResponse(url: makeUrl(), statusCode: 404, httpVersion: nil, headerFields: nil)!
-        expectResult(.failure(NetworkError.invalidResponse), when: (data: nil, response: response, error: nil))
+        expectResult(.failure(NetworkError.httpError(404)), when: (data: nil, response: response, error: nil))
     }
 
     // MARK: - Requisição com a URL Incorreta
