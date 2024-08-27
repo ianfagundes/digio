@@ -6,7 +6,7 @@ POD_BIN = $(shell which pod)
 FASTLANE_BIN = $(shell which fastlane)
 
 # Tarefa principal
-setup: install_cocoapods install_swiftlint install_fastlane lint
+setup: podfile_setup install_cocoapods install_swiftlint install_fastlane lint
 
 # Instalar CocoaPods
 install_cocoapods:
