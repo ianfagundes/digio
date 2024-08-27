@@ -31,30 +31,6 @@ Executa testes e gera relatório
 
 Gera build local
 
-### ios lint
-
-```sh
-[bundle exec] fastlane ios lint
-```
-
-Lint do código
-
-### ios generate_docs
-
-```sh
-[bundle exec] fastlane ios generate_docs
-```
-
-Gera documentação
-
-### ios generate_screenshots
-
-```sh
-[bundle exec] fastlane ios generate_screenshots
-```
-
-Gera screenshots
-
 ### ios prepare_for_release
 
 ```sh
@@ -62,6 +38,14 @@ Gera screenshots
 ```
 
 Prepara para release
+
+### ios lint
+
+```sh
+[bundle exec] fastlane ios lint
+```
+
+Executa o SwiftLint
 
 ----
 

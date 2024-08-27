@@ -21,29 +21,20 @@ platform :ios do
     gym(
       workspace: "digio.xcworkspace",
       scheme: "digio",
-      configuration: "Release"
+      configuration: "Debug", 
+      export_method: "development"
     )
-  end
-
-  desc "Lint do código"
-    lane :lint do
-      sh "swiftlint"
-    end
-
-  desc "Gera documentação"
-  lane :generate_docs do
-    sh "jazzy --output ./fastlane/docs"
-  end
-
-  desc "Gera screenshots"
-  lane :generate_screenshots do
-    capture_screenshots
   end
 
   desc "Prepara para release"
   lane :prepare_for_release do
-    run_tests
+    clean_and_test
     lint
     build
+  end
+
+  desc "Executa o SwiftLint"
+  lane :lint do
+    sh "swiftlint --config #{File.expand_path('../swiftlint.yml', __dir__)} #{File.expand_path('../digio', __dir__)}"
   end
 end
