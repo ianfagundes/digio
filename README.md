@@ -97,7 +97,12 @@ Decisões de Projeto
    ```bash
    make test
    ```
+6. **Opcional execute todos os Testes:**
 
+   ```bash
+   make test_all
+   ```
+   
 ## Contribuição
 
 Contribuições são bem-vindas! Para contribuir, siga os passos abaixo:
