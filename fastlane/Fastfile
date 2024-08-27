@@ -1,0 +1,49 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Executa testes e gera relatório"
+  lane :clean_and_test do
+    clear_derived_data
+    scan(
+      workspace: "digio.xcworkspace",
+      scheme: "digio",
+      output_types: "html,junit",
+      output_directory: "./fastlane/reports/scan"
+    )
+  end
+  
+  def clear_derived_data
+    sh "rm -rf ~/Library/Developer/Xcode/DerivedData"
+  end
+
+  desc "Gera build local"
+  lane :build do
+    gym(
+      workspace: "digio.xcworkspace",
+      scheme: "digio",
+      configuration: "Release"
+    )
+  end
+
+  desc "Lint do código"
+    lane :lint do
+      sh "swiftlint"
+    end
+
+  desc "Gera documentação"
+  lane :generate_docs do
+    sh "jazzy --output ./fastlane/docs"
+  end
+
+  desc "Gera screenshots"
+  lane :generate_screenshots do
+    capture_screenshots
+  end
+
+  desc "Prepara para release"
+  lane :prepare_for_release do
+    run_tests
+    lint
+    build
+  end
+end
